@@ -1,0 +1,163 @@
+﻿@model TraCuuThongTIn.DBContext.tbThongTinCaNhan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbThongTinCaNhan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPhuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPhuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDQuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDQuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDThanhPho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDThanhPho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiCap_IDTP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiCap_IDTP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrangHonNhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangHonNhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgheNghiep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgheNghiep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNhomMau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNhomMau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hide)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDThongTin }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

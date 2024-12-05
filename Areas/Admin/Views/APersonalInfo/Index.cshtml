@@ -1,0 +1,150 @@
+﻿@model IEnumerable<TraCuuThongTIn.DBContext.tbThongTinCaNhan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Danh Sách Thông Tin</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Tables</li>
+                <li class="breadcrumb-item active">Data</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Quản Lý Danh Sách</h5>
+                        <a href="/Admin/APersonalInfo/Create" class="btn btn-success">Thêm</a>
+                        <!-- Table with stripped rows -->
+                        <div style="width: 100%; overflow-x:auto;">
+                            <table class="table datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Họ Tên</th>
+                                        <th>SĐT</th>
+                                        <th>Gmail</th>
+                                        <th>Mật Khẩu</th>
+                                        <th>Địa Chỉ</th>
+                                        <th>Phường</th>
+                                        <th>Quận</th>
+                                        <th>Thành Phố</th>
+                                        <th>Ngày Sinh</th>
+                                        <th>Giới Tính</th>
+                                        <th>CCCD</th>
+                                        <th>Ngày Cấp</th>
+                                        <th>Nơi Cấp</th>
+                                        <th>Hình Ảnh</th>
+                                        <th>Tình Trạng Hôn Nhân</th>
+                                        <th>Nghề Nghiệp</th>
+                                        <th>Nhóm Máu</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Thao Tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.Raw(item.HoTen)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.SDT)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.Gmail)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.MatKhau)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.DiaChi)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.IDPhuong)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.IDQuan)
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.IDThanhPho)
+                                            </td>
+                                            <td>
+                                                @item.NgaySinh.Value.ToString("dd/MM/yyyy")
+                                            </td>
+                                            <td>
+                                                @if (item.GioiTinh != true)
+                                                {
+                                                    <a>Nam</a>
+                                                }
+                                                else
+                                                {
+                                                    <a>Nữ</a>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.Raw(item.CCCD)
+                                            </td>
+                                            <td>
+                                                @item.NgayCap.Value.ToString("dd/MM/yyyy")
+                                            </td>
+                                            <td>
+                                                <img src="@item.HinhAnh" width="150" />
+                                            </td>
+                                            
+                                            <td>
+                                                @Html.Raw(item.NoiCap_IDTP)
+                                            </td>
+                                            <td>
+                                                @if (item.TinhTrangHonNhan == 1 )
+                                                {
+                                                    <a>Độc Thân</a>
+                                                }
+                                                else
+                                                {
+                                                    <a>Đã Kết Hôn</a>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.Action("GetJobName", "APersonalInfo", new { id = item.NgheNghiep })
+                                            </td>
+                                            <td>
+                                                @Html.Action("GetBloodGrName", "APersonalInfo", new { id = item.IDNhomMau })
+                                            </td>
+                                            <td>
+                                                @if (item.Hide != true)
+                                                {
+                                                    <a>Hiện</a>
+                                                }
+                                                else
+                                                {
+                                                    <a>Ẩn</a>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a href="/Admin/APersonalInfo/Edit/@item.IDThongTin" class="btn btn-warning">Chỉnh Sửa</a>
+                                                <a href="/Admin/APersonalInfo/Details/@item.IDThongTin" class="btn btn-primary">Chi Tiết</a>
+                                                <a href="/Admin/APersonalInfo/Delete/@item.IDThongTin" class="btn btn-danger">Xoá</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>

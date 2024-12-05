@@ -1,0 +1,334 @@
+﻿@model TraCuuThongTIn.DBContext.tbThongTinCaNhan
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout - Copy.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>THÊM MỚI</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Forms</li>
+                <li class="breadcrumb-item active">Elements</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body" style="padding-top: 10px">
+                        <!-- General Form Elements -->
+                        <form action="/Admin/APersonalInfo/Create" method="post" enctype="multipart/form-data">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Họ Tên</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="HoTen" value="@Model.HoTen">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">SĐT</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="SDT" value="@Model.SDT">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Gmail</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="Gmail" value="@Model.Gmail">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Mật Khẩu</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="MatKhau" value="@Model.MatKhau">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Địa Chỉ</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="DiaChi" value="@Model.DiaChi">
+                                </div>
+                            </div>
+
+                            <!-- Thành Phố -->
+                            <div class="row mb-3">
+                                <label for="Th_TinhThanhPho" class="col-sm-2 col-form-label">Thành Phố</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="IDThanhPho" id="Th_TinhThanhPho">
+                                        <option value="">-- Chọn Thành Phố --</option>
+                                        <!-- Dynamically populated items go here -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Quận/Huyện -->
+                            <div class="row mb-3">
+                                <label for="Th_QuanHuyen" class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="IDQuan" id="Th_QuanHuyen" disabled>
+                                        <option value="">-- Chọn Quận/Huyện --</option>
+                                        <!-- Dynamically populated items go here -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Phường/Xã -->
+                            <div class="row mb-3">
+                                <label for="Th_XaPhuong" class="col-sm-2 col-form-label">Phường/Xã</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="IDPhuong" id="Th_XaPhuong" disabled>
+                                        <option value="">-- Chọn Xã/Phường --</option>
+                                        <!-- Dynamically populated items go here -->
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Ngày Sinh</label>
+                                <div class="col-sm-10">
+                                    <div class="col-sm-2" style="float:left">
+                                        <select class="form-control" style="display:inline" name="bday">
+                                            @Html.Action("ReturnDay", "APersonalInfo", new { bday = 0 })
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2" style="float:left">
+                                        <select class="form-control" style="display:inline" name="bmonth">
+                                            @Html.Action("ReturnMonth", "APersonalInfo", new { bmonth = 0 })
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2" style="float:left">
+                                        <select class="form-control" style="display:inline" name="byear">
+                                            @Html.Action("ReturnYear", "APersonalInfo", new { byear = 0 })
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Giới Tính</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="GioiTinh" aria-label="Default select example">
+                                        
+                                        @if (Model.GioiTinh != true)
+                                        {
+                                            <option>----- Chọn -----</option>
+                                            <option value="true">Nữ</option>
+                                            <option selected value="false">Nam</option>
+                                        }
+                                        else
+                                        {
+                                            <option>----- Chọn -----</option>
+                                            <option selected value="true">Nữ</option>
+                                            <option value="false">Nam</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">CCCD</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="CCCD" value="@Model.CCCD">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Ngày Cấp</label>
+                                <div class="col-sm-10">
+                                    <div class="col-sm-2" style="float:left">
+                                        <select class="form-control" style="display:inline" name="day">
+                                            @Html.Action("ReturnDay", "APersonalInfo", new { day = 0 })
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2" style="float:left">
+                                        <select class="form-control" style="display:inline" name="month">
+                                            @Html.Action("ReturnMonth", "APersonalInfo", new { month = 0 })
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2" style="float:left">
+                                        <select class="form-control" style="display:inline" name="year">
+                                            @Html.Action("ReturnYear", "APersonalInfo", new { year = 0 })
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="NoiCap_IDTP" class="col-sm-2 col-form-label">Nơi Cấp</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="NoiCap_IDTP" id="NoiCap_TinhThanhPho">
+                                        <option value="">-- Chọn Thành Phố --</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Media" class="col-sm-2 col-form-label">Hình Ảnh</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name="HinhAnh" id="fromFile">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Tình Trạng Hôn Nhân</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="TinhTrangHonNhan" aria-label="Default select example">
+                                        @if (Model.TinhTrangHonNhan == 1)
+                                        {
+                                            <option>----- Chọn -----</option>
+                                            <option value="true">Độc Thân</option>
+                                            <option selected value="false">Đã Kết Hôn</option>
+                                        }
+                                        else
+                                        {
+                                            <option>----- Chọn -----</option>
+                                            <option selected value="true">Độc Thân</option>
+                                            <option value="false">Đã Kết Hôn</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="TenDanhMuc" class="col-sm-2 col-form-label">Nghề Nghiệp</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="NgheNghiep" id="NgheNghiep">
+                                        @Html.Action("GetJobID", "APersonalInfo")
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="TenDanhMuc" class="col-sm-2 col-form-label">Nhóm Máu</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name="IDNhomMau" id="IDNhomMau">
+                                        @Html.Action("GetBloodGrID", "APersonalInfo")
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <a href="/Admin/APersonalInfo/index" class="btn btn-danger">Quay Lại</a>
+                                </div>
+                            </div>
+                        </form><!-- End General Form Elements -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+</main><!-- End #main -->
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            // Hàm load Quận/Huyện dựa trên Tỉnh/Thành phố đã chọn
+            function loadQuanHuyen() {
+                let selectedTinh = $("#Th_TinhThanhPho").val();
+
+                if (selectedTinh) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/APersonalInfo/GetJson',
+                        data: { id: selectedTinh },
+                        success: function (data) {
+                            // Xóa các tùy chọn cũ trước khi thêm mới
+                            $('#Th_QuanHuyen').empty();
+                            $('#Th_QuanHuyen').append('<option value="">-- Chọn Quận/Huyện --</option>');
+
+                            // Thêm các tùy chọn mới cho Quận/Huyện
+                            $.each(data, function (index, item) {
+                                $('#Th_QuanHuyen').append('<option value="' + item.IDQuan + '">' + item.TenQuan + '</option>');
+                            });
+
+                            // Kích hoạt dropdown nếu có dữ liệu
+                            if (data && data.length > 0) {
+                                $('#Th_QuanHuyen').prop('disabled', false);
+                            } else {
+                                $('#Th_QuanHuyen').prop('disabled', true).empty().append('<option value="">-- Chọn Quận/Huyện --</option>');
+                            }
+
+                            // Reset dropdown Xã/Phường
+                            $('#Th_XaPhuong').prop('disabled', true).empty().append('<option value="">-- Chọn Xã/Phường --</option>');
+                        },
+                        error: function () {
+                            alert("Không lấy được thông tin Quận/Huyện. Vui lòng thử lại.");
+                        }
+                    });
+                } else {
+                    // Nếu không có Tỉnh/Thành phố nào được chọn, vô hiệu hóa Quận/Huyện và Xã/Phường
+                    $('#Th_QuanHuyen').prop('disabled', true).empty().append('<option value="">-- Chọn Quận/Huyện --</option>');
+                    $('#Th_XaPhuong').prop('disabled', true).empty().append('<option value="">-- Chọn Xã/Phường --</option>');
+                }
+            }
+
+            // Hàm load dữ liệu cho dropdown Nơi Cấp
+            function loadNoiCap() {
+                let selectedTinh = $("#Th_TinhThanhPho").val();
+
+                if (selectedTinh) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/APersonalInfo/GetJson',  // Cần đảm bảo API này trả về dữ liệu tương tự
+                        data: { id: selectedTinh },
+                        success: function (data) {
+                            // Xóa các tùy chọn cũ trước khi thêm mới
+                            $('#NoiCap_TinhThanhPho').empty();
+                            $('#NoiCap_TinhThanhPho').append('<option value="">-- Chọn Thành Phố --</option>');
+
+                            // Thêm các tùy chọn mới cho Nơi cấp
+                            $.each(data, function (index, item) {
+                                $('#NoiCap_TinhThanhPho').append('<option value="' + item.IDThanhPho + '">' + item.TenThanhPho + '</option>');
+                            });
+
+                            // Kích hoạt dropdown nếu có dữ liệu
+                            if (data && data.length > 0) {
+                                $('#NoiCap_TinhThanhPho').prop('disabled', false);
+                            } else {
+                                $('#NoiCap_TinhThanhPho').prop('disabled', true).empty().append('<option value="">-- Chọn Thành Phố --</option>');
+                            }
+                        },
+                        error: function () {
+                            alert("Không lấy được thông tin Nơi Cấp. Vui lòng thử lại.");
+                        }
+                    });
+                } else {
+                    // Nếu không có Thành phố nào được chọn, vô hiệu hóa dropdown Nơi Cấp
+                    $('#NoiCap_TinhThanhPho').prop('disabled', true).empty().append('<option value="">-- Chọn Thành Phố --</option>');
+                }
+            }
+
+            // Gán sự kiện onchange cho dropdown Thành phố
+            $('#Th_TinhThanhPho').change(function () {
+                loadQuanHuyen();
+                loadNoiCap();  // Gọi hàm để load dữ liệu cho Nơi cấp khi thành phố thay đổi
+            });
+
+            // Vô hiệu hóa dropdowns khi trang vừa tải
+            $('#Th_QuanHuyen').prop('disabled', true);
+            $('#Th_XaPhuong').prop('disabled', true);
+            $('#NoiCap_TinhThanhPho').prop('disabled', true);
+        })
+
+    </script>
+
+}

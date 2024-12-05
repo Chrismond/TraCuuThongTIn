@@ -1,0 +1,185 @@
+﻿#assistants-container::after {
+    content: '';
+    position: absolute;
+    bottom: 80px;
+    right: -12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 13px solid #fff;
+    z-index: 9999;
+}
+
+#assistants-content {
+    border: 0px;
+    width: 380px;
+    /*height: calc(100% - 112px);*/
+    position: fixed;
+    z-index: 9999;
+    right: 65px;
+    bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+}
+
+.authentication {
+    display: flex;
+}
+
+    .authentication .chat-content {
+        display: flex;
+        flex-grow: 1 !important;
+        flex-shrink: 1 !important;
+        flex-basis: auto !important;
+        flex-direction: column;
+    }
+
+.chat-enterinfo-container {
+    padding: 10px 0;
+    font-size: 15px;
+}
+
+.chat-card {
+    background-color: #fff !important;
+    border-radius: 5px !important;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2) !important;
+    display: block !important;
+    font-size: 14px !important;
+    margin: 10px 10px 0 !important;
+    padding: 12px 18px !important;
+}
+
+.authentication .chat-content input, .authentication .chat-content textarea {
+    background-color: #fff !important;
+    border: 1px solid rgba(0,0,0,0.3) !important;
+    border-radius: 5px !important;
+    cursor: text !important;
+    font-size: 16px !important;
+    line-height: 22px !important;
+    margin-bottom: 10px !important;
+    padding: 8px 10px 9px 10px !important;
+    width: 100% !important;
+}
+
+.source-styles {
+    padding: 10px 15px;
+}
+
+.group-items {
+    display: flex;
+    place-content: stretch space-between;
+}
+
+.selected-item {
+    display: flex;
+    box-sizing: border-box;
+    flex-flow: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+    .selected-item:hover {
+        background-color: #eee;
+    }
+
+.source-icon {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 0.1s ease-in-out 0s;
+    margin: 4px;
+    border: 2px solid rgb(0, 171, 86);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+
+    .source-icon img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1px solid rgb(235, 235, 240);
+    }
+
+.source-name {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+    .source-name .name {
+        font-size: 15px;
+        font-weight: 600;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+    }
+
+.control-groups {
+    display: flex;
+    box-sizing: border-box;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+    .control-groups .control-style {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .control-groups .control-style:hover {
+            background-color: #eee;
+        }
+/*assistant speech*/
+#assistant-speechs {
+    width: 0px;
+    min-height: 40px;
+    position: fixed;
+    z-index: 999;
+    right: 80px;
+    bottom: 150px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px #888;
+    border-radius: 8px;
+    padding: 10px 15px;
+    /*transition: width 2s;
+    visibility: hidden;
+    opacity: 0;*/
+    display: none;
+}
+
+    #assistant-speechs::after {
+        content: '';
+        position: absolute;
+        bottom: -34px;
+        right: -10px;
+        width: 50px;
+        height: 35px;
+        background-image: url('../images/callout-left.png');
+        z-index: 9999;
+    }
+    #assistant-speechs.speech {
+        /*visibility: visible;
+        opacity: 1;*/
+        display: block;
+        width: 300px;
+    }
+
+@media only screen and (max-width: 440px) {
+    #assistant-speechs.speech {
+        width: 260px;
+    }
+}

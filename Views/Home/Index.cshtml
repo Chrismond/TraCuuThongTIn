@@ -1,0 +1,332 @@
+﻿@model IEnumerable<TraCuuThongTIn.DBContext.tbTinhThanhPho>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <div class="container nganh-khoang-cach" style="min-height: calc(100vh - 346px);">
+        <div id="Khung_tra_cuu" class="col-md-12 khoang-cach-5">
+            <h1 style="text-align:center; color:#0082c8; font-size:24px; font-weight:500; margin:40px 0px">TRA CỨU THÔNG TIN</h1>
+            <div class="col-xs-12 col-md-10 col-md-offset-1" style="margin-bottom:30px; font-size: 15px;">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="tinhThanhPho" style="padding-right: 0; text-align: right; padding-top: 8px;">Tỉnh/Thành phố <span class="required">(*)</span></label>
+                    <div class="col-sm-8">
+                        <select id="tinhThanhPho" name="tinhThanhPho" class="form-control" style="width: 80%; display: inline;max-width: 412px;">
+                            <option value="">-- Chọn Tỉnh Thành Phố --</option>
+                            @foreach (var item in Model)
+                            {
+                                <option value="@item.IDTP">@item.TenTP</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Th_QuanHuyen" style="padding-right: 0; text-align: right; padding-top: 8px;">Quận/Huyện <span class="required">(*)</span></label>
+                    <div class="col-sm-8">
+                        <select id="Th_QuanHuyen" name="Th_QuanHuyen" class="form-control" style="width: 80%; display: inline;max-width: 412px;">
+                            <option value="">-- Chọn Quận/Huyện --</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="Th_XaPhuong" style="padding-right: 0; text-align: right; padding-top: 8px;">Xã/Phường <span class="required">(*)</span></label>
+                    <div class="col-sm-8">
+                        <select id="Th_XaPhuong" name="Th_XaPhuong" class="form-control" style="width: 80%; display: inline;max-width: 412px;">
+                            <option value="">-- Chọn Xã/Phường --</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="nhomMauCho" style="padding-right: 0; text-align: right; padding-top: 8px;">Nhóm máu cho <span class="required">(*)</span></label>
+                    <div class="col-sm-8">
+                        <select id="nhomMauCho" name="nhomMauCho" class="form-control" style="width: 80%; display: inline; max-width: 412px;">
+                            <option value="">-- Chọn Nhóm Máu Cho --</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="nhomMauNhan" style="padding-right: 0; text-align: right; padding-top: 8px;">Nhóm máu nhận <span class="required">(*)</span></label>
+                    <div class="col-sm-8">
+                        <select id="nhomMauNhan" name="nhomMauNhan" class="form-control" style="width: 80%; display: inline; max-width: 412px;">
+                            <option value="">-- Chọn Nhóm Máu Nhận --</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="btnTraCuu" type="button" class="btn btn-default btn-tra-cuu"
+                        style="display: inline-block; max-width: 412px; padding: 10px 50px; margin-bottom: 10px;
+               background-color: #0082c8; color: #fff; font-size: 16px;
+               border: none; border-radius: 5px; transition: background-color 0.3s ease; ">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span><br>
+                    <span>Tra cứu</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div style="clear:both; height:10px"></div>
+<!-- Khung kết quả -->
+<div id="Khung_ket_qua" class="container nganh-khoang-cach" style="display: none; margin-top: 20px;">
+    <div class="col-md-12 khoang-cach-5">
+        <div id="Thongbao" style="text-align: center; color: #ff0000; font-size: 16px;"></div>
+        <div id="bang-bieu" style="color:#2B2B2B; margin:5px 0px 15px 0px;">
+            <h1 id="Tieu_de" style="text-align:center; color:#0082c8; font-size:24px; font-weight:500; margin-top:30px; margin-bottom:20px">KẾT QUẢ</h1>
+            <table class="col-sm-12 table-bordered table-striped table-condensed" style="padding:0px; width:100%; font-size:14px">
+                <thead>
+                    <tr class="chieu-cao" style="background-color:#DFF4FF; color:#0082c8">
+                        <th>STT</th>
+                        <th>Họ Tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Nhóm máu</th>
+                        <th>Tình trạng hôn nhân</th>
+                        <th>Nghề nghiệp</th>
+                        <th>Hình ảnh</th>
+                    </tr>
+                </thead>
+                <tbody id="Ketqua">
+                    <!-- Dữ liệu sẽ được thêm vào đây thông qua AJAX -->
+                </tbody>
+            </table>
+            <div id="phantrang" class="col-xs-12 col-sm-5 col-sm-offset-4">
+                <!-- Phân trang (nếu cần) -->
+                <div class="my-navigation">
+                    <div class="simple-pagination-first"></div>
+                    <div class="simple-pagination-previous"></div>
+                    <div class="simple-pagination-page-numbers"></div>
+                    <div class="simple-pagination-next"></div>
+                    <div class="simple-pagination-last"></div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <input type="hidden" id="token">
+</div>
+
+
+<div style="height:15px;"></div>
+<div class="overlay">
+    <img src="/Content/images/loading.gif" alt="">
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Hàm load Quận/Huyện dựa trên Tỉnh/Thành phố đã chọn
+        function loadQuanHuyen() {
+            let selectedTinh = $("#tinhThanhPho").val();
+
+            if (selectedTinh) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/GetJson',
+                    data: { id: selectedTinh },
+                    success: function (data) {
+                        // Xóa các tùy chọn cũ trước khi thêm mới
+                        $('#Th_QuanHuyen').empty();
+                        $('#Th_QuanHuyen').append('<option value="">-- Chọn Quận/Huyện --</option>');
+
+                        // Thêm các tùy chọn mới cho Quận/Huyện
+                        $.each(data, function (index, item) {
+                            $('#Th_QuanHuyen').append('<option value="' + item.IDQuan + '">' + item.TenQuan + '</option>');
+                        });
+
+                        // Kích hoạt dropdown nếu có dữ liệu
+                        if (data && data.length > 0) {
+                            $('#Th_QuanHuyen').prop('disabled', false);
+                        } else {
+                            $('#Th_QuanHuyen').prop('disabled', true).empty().append('<option value="">-- Chọn Quận/Huyện --</option>');
+                        }
+
+                        // Reset dropdown Xã/Phường
+                        $('#Th_XaPhuong').prop('disabled', true).empty().append('<option value="">-- Chọn Xã/Phường --</option>');
+                    },
+                    error: function () {
+                        alert("Không lấy được thông tin Quận/Huyện. Vui lòng thử lại.");
+                    }
+                });
+            } else {
+                // Nếu không có Tỉnh/Thành phố nào được chọn, vô hiệu hóa Quận/Huyện và Xã/Phường
+                $('#Th_QuanHuyen').prop('disabled', true).empty().append('<option value="">-- Chọn Quận/Huyện --</option>');
+                $('#Th_XaPhuong').prop('disabled', true).empty().append('<option value="">-- Chọn Xã/Phường --</option>');
+            }
+        }
+
+        function loadXaPhuong(selectedIDQuan) {
+            if (selectedIDQuan) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/GetJsonXaPhuong',
+                    data: { idQuan: selectedIDQuan },
+                    success: function (data) {
+                        $('#Th_XaPhuong').empty();
+                        $('#Th_XaPhuong').append('<option value="">-- Chọn Xã/Phường --</option>');
+
+                        $.each(data, function (index, item) {
+                            $('#Th_XaPhuong').append('<option value="' + item.IDPhuong + '">' + item.TenPhuong + '</option>');
+                        });
+
+                        if (data && data.length > 0) {
+                            $('#Th_XaPhuong').prop('disabled', false);
+                        } else {
+                            $('#Th_XaPhuong').prop('disabled', true).empty().append('<option value="">-- Chọn Xã/Phường --</option>');
+                            alert("Không có xã/phường nào được tìm thấy.");
+                        }
+                    },
+                    error: function () {
+                        alert("Không lấy được thông tin Xã/Phường. Vui lòng thử lại.");
+                    }
+                });
+            } else {
+                $('#Th_XaPhuong').prop('disabled', true).empty().append('<option value="">-- Chọn Xã/Phường --</option>');
+            }
+        }
+
+        $('#tinhThanhPho').change(function () {
+            loadQuanHuyen();
+        });
+
+        $('#Th_QuanHuyen').change(function () {
+            let selectedIDQuan = $(this).val();
+            loadXaPhuong(selectedIDQuan);
+        });
+
+        $('#Th_QuanHuyen').prop('disabled', true);
+        $('#Th_XaPhuong').prop('disabled', true);
+    });
+    $(document).ready(function () {
+        function loadBloodGroups() {
+            $.ajax({
+                type: 'POST',
+                url: '/Home/GetBloodGroups',
+                success: function (data) {
+                    // Clear existing options before adding new ones
+                    $('#nhomMauCho').empty();
+                    $('#nhomMauNhan').empty();
+
+                    $('#nhomMauCho').append('<option value="">-- Chọn Nhóm Máu Cho --</option>');
+                    $('#nhomMauNhan').append('<option value="">-- Chọn Nhóm Máu Nhận --</option>');
+
+                    // Add new options based on returned data
+                    $.each(data, function (index, item) {
+                        $('#nhomMauCho').append('<option value="' + item.IDNhomMau + '">' + item.TenNhomMau + '</option>');
+                        $('#nhomMauNhan').append('<option value="' + item.IDNhomMau + '">' + item.TenNhomMau + '</option>');
+                    });
+                },
+                error: function () {
+                    alert("Không lấy được thông tin nhóm máu. Vui lòng thử lại.");
+                }
+            });
+        }
+
+        loadBloodGroups();
+
+        $('#nhomMauCho').change(function () {
+            if ($(this).val() !== "") {
+                $('#nhomMauNhan').prop('disabled', true);
+            } else {
+                $('#nhomMauNhan').prop('disabled', false);
+            }
+        });
+
+        $('#nhomMauNhan').change(function () {
+            if ($(this).val() !== "") {
+                $('#nhomMauCho').prop('disabled', true);
+            } else {
+                $('#nhomMauCho').prop('disabled', false);
+            }
+        });
+    });
+
+    $('#btnTraCuu').click(function (event) {
+        event.preventDefault();  // Ngăn chặn hành động mặc định
+
+        // Lấy các giá trị từ các dropdown
+        let tinhThanhPho = $('#tinhThanhPho').val();
+        let quanHuyen = $('#Th_QuanHuyen').val();
+        let xaPhuong = $('#Th_XaPhuong').val();
+        let nhomMauCho = $('#nhomMauCho').val();
+        let nhomMauNhan = $('#nhomMauNhan').val();
+
+        // Tạo đối tượng dữ liệu để gửi lên server
+        let searchData = {
+            tinhThanhPho: tinhThanhPho,
+            quanHuyen: quanHuyen,
+            xaPhuong: xaPhuong,
+            nhomMauCho: nhomMauCho,
+            nhomMauNhan: nhomMauNhan
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/Home/Search',  // URL của server để thực hiện tra cứu
+            data: JSON.stringify(searchData),  // Gửi dữ liệu tìm kiếm
+            contentType: 'application/json',  // Định dạng dữ liệu gửi đi là JSON
+            success: function (data) {
+                // In ra dữ liệu nhận được từ server để kiểm tra
+                console.log("Dữ liệu nhận được từ server: ", data);
+
+                // Kiểm tra nếu có dữ liệu trả về
+                if (data.length > 0) {
+                    // Hiển thị phần tử chứa kết quả
+                    $('#Khung_ket_qua').show();
+                    $('#Ketqua').empty(); // Xóa kết quả cũ (nếu có)
+
+                    // Lặp qua dữ liệu và hiển thị từng kết quả vào bảng
+                    $.each(data, function (index, item) {
+                        $('#Ketqua').append('<tr>' +
+                            '<td>' + (index + 1) + '</td>' +
+                            '<td>' + item.HoTen + '</td>' +
+                            '<td>' + item.DiaChi + '</td>' +
+                            '<td>' + item.Gmail + '</td>' +
+                            '<td>' + item.SoDienThoai + '</td>' +
+                            '<td>' + item.NgaySinh + '</td>' +
+                            '<td>' + item.GioiTinh + '</td>' +
+                            '<td>' + item.NhomMau + '</td>' +
+                            '<td>' + item.TinhTrangHonNhan + '</td>' +
+                            '<td>' + item.NgheNghiep + '</td>' +
+                            '<td><img src="' + item.HinhAnh + '" alt="Hình ảnh" style="max-width:100px;"></td>' +
+                            '</tr>');
+                    });
+                } else {
+                    // Nếu không có kết quả, hiển thị thông báo không tìm thấy kết quả
+                    $('#Thongbao').text('Không tìm thấy kết quả phù hợp.');
+                }
+            },
+            error: function () {
+                // Nếu có lỗi xảy ra trong quá trình AJAX, thông báo lỗi cho người dùng
+                alert("Không thể thực hiện tra cứu. Vui lòng thử lại.");
+            }
+        });
+
+    });
+
+    document.getElementById('btnTraCuu').addEventListener('mouseover', function () {
+        this.style.backgroundColor = '#005fa3';
+    });
+
+    document.getElementById('btnTraCuu').addEventListener('mouseout', function () {
+        this.style.backgroundColor = '#0082c8';
+    }); 
+</script>

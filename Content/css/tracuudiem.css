@@ -1,0 +1,44 @@
+﻿.simple-pagination-page-numbers a, .simple-pagination-first a, .simple-pagination-previous a, .simple-pagination-next a, .simple-pagination-last a
+{
+	display: block;
+	float: left;
+	/*width: 2rem;*/
+}
+a[class^="simple-pagination-navigation-"] + a[class^="simple-pagination-navigation-"]
+{
+	margin-right: 0;
+}
+a[class*="simple-pagination-navigation-disabled"]
+{
+	/*color: black;
+	cursor: default;*/
+    cursor: no-drop;
+}
+.simple-pagination-page-numbers a[class*="simple-pagination-navigation-disabled"]
+{
+    color: whitesmoke !important;
+    background-color: #337ab7 !important;
+    border: 1px solid #337ab7;
+}
+.my-navigation {
+    margin: 10px 0;
+}
+.my-navigation a {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+}
+.my-navigation:after
+{
+	content: "";
+	display: table;
+	clear: both;
+}
+.my-navigation div
+{
+	float: left;
+}
+.my-navigation div + div
+{
+	/*margin-left: .5rem;*/
+}

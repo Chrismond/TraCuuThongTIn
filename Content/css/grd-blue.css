@@ -1,0 +1,213 @@
+/* Desktop Main Menu Color */
+
+.wsmainfull {
+  /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(left, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(left, #31c8b1, #0082c8);
+  background: -o-linear-gradient(left, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(left, #31c8b1, #0082c8);
+  background: linear-gradient(left, #31c8b1, #0082c8);
+  */
+  background-color: #0082c8;
+}
+
+.wsactive .wsmenu>.wsmenu-list {
+  /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(top, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(top, #31c8b1, #0082c8);
+  background: -o-linear-gradient(top, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(top, #31c8b1, #0082c8);
+  background: linear-gradient(top, #31c8b1, #0082c8);
+  */
+  background-color: #0082c8;
+}
+
+/* Mobile Header Color */
+
+.wsmobileheader {
+  background-color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > a {
+    color: #fff;
+    /*border-right: 1px solid rgba(0, 0, 0, 0.10);*/
+    /*text-shadow: 1px 1px 5px black;*/
+}
+
+.wsmenu>.wsmenu-list>li>a .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>a:hover .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>a.active .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li:hover>a .wsarrow:after {
+  border-top-color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>a>i {
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>a.active i {
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li:hover>a>i {
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>a:hover i {
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>.wsmegamenu .menu_form input[type="submit"] {
+    /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(left, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(left, #31c8b1, #0082c8);
+  background: -o-linear-gradient(left, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(left, #31c8b1, #0082c8);
+  background: linear-gradient(left, #31c8b1, #0082c8);
+        */
+  background-color: #0082c8;
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>.wsmegamenu .menu_form input[type="button"] {
+    /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(left, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(left, #31c8b1, #0082c8);
+  background: -o-linear-gradient(left, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(left, #31c8b1, #0082c8);
+  background: linear-gradient(left, #31c8b1, #0082c8);
+        */
+  background-color: #0082c8;
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li>a.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.wsmenu>.wsmenu-list>li:hover>a {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li:hover > a {
+    /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(left, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(left, #31c8b1, #0082c8);
+  background: -o-linear-gradient(left, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(left, #31c8b1, #0082c8);
+  background: linear-gradient(left, #31c8b1, #0082c8);
+  */
+    background-color: rgba(0,0,0,0.03);
+    color: #FD6504;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li:hover > a {
+    /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(left, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(left, #31c8b1, #0082c8);
+  background: -o-linear-gradient(left, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(left, #31c8b1, #0082c8);
+  background: linear-gradient(left, #31c8b1, #0082c8);
+        */
+    background-color: rgba(0,0,0,0.03);
+    color: #FD6504;
+}
+
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li:hover a {
+    /*
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#31c8b1), to(#0082c8));
+  background: -webkit-linear-gradient(left, #31c8b1, #0082c8);
+  background: -moz-linear-gradient(left, #31c8b1, #0082c8);
+  background: -o-linear-gradient(left, #31c8b1, #0082c8);
+  background: -ms-linear-gradient(left, #31c8b1, #0082c8);
+  background: linear-gradient(left, #31c8b1, #0082c8);
+        */
+    background-color: rgba(0, 0, 0, 0.03);
+    color: #FD6504;
+}
+.wsmenu > .wsmenu-list > li > .wsmegamenu ul > li {
+    overflow: hidden;
+}
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li a i:first-child, .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a i:first-child, .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li > a i:first-child {
+        /*border: 1px solid #fff;*/
+        border-radius: 3px;
+        box-shadow: inset 0px 0px 0px 2px rgba(253, 101, 4, 0);
+        transition: 0.3s all ease-in;
+        width: 25px;
+        height: 25px;
+        padding-top: 4px;
+        color: #424242;
+        text-align: center;
+    }
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li a i.fa-long-arrow-right {
+        border: none !important;
+    }
+.wsmenu > .wsmenu-list > li > .wsmegamenu ul > li a i.fa-angle-right {
+    float: right;
+    padding-top: 4px;
+    margin-right: 0;
+    transition: .3s all;
+}
+.wsmenu > .wsmenu-list > li > .wsmegamenu ul > li a span.nav-arrow {
+    background: url(../images/arrow-orange.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 18px;
+    height: 12px;
+    display: inline-block;
+    transition: .3s all;
+    opacity: 0;
+    float: right;
+    margin-top: 7px;
+    margin-right: 15px;
+}
+.wsmenu > .wsmenu-list > li > .wsmegamenu ul > li:hover a {
+    background-color: rgba(0,0,0,0.03);
+    text-decoration: none;
+    color: #FD6504;
+}
+
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li:hover a i:first-child, .wsmenu > .wsmenu-list > li > ul.sub-menu > li:hover > a i:first-child, .wsmenu > .wsmenu-list > li > ul.sub-menu > li > ul.sub-menu > li:hover > a i:first-child {
+        /*border: 1px solid #FD6504;*/
+        box-shadow: inset 0px 0px 0px 2px rgba(253, 101, 4, 1);
+        color: #424242;
+    }
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li:hover a i.fa-angle-right {
+        margin-right: -15px;
+    }
+
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li:hover a span.nav-arrow {
+        opacity: 1;
+        margin-right: 5px;
+    }
+
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li a span.icon-khai-giang {
+        font-size: 22pt;
+        /*border: 1px solid #fff;*/
+        border-radius: 3px;
+        box-shadow: inset 0px 0px 0px 2px rgba(253, 101, 4, 0);
+        transition: 0.3s all ease-in;
+        padding: 5px;
+    }
+    .wsmenu > .wsmenu-list > li > .wsmegamenu ul > li:hover a span.icon-khai-giang {
+        /*border: 1px solid #FD6504;*/
+        box-shadow: inset 0px 0px 0px 2px rgba(253, 101, 4, 1);
+        color: #424242;
+    }
